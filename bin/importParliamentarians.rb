@@ -6,5 +6,6 @@ puts "Started crawl parliamentarians"
 parliamentarians = Parliamentarians::Extractor.new(ENV)
 data = parliamentarians.dump
 
-puts data
+puts data if ENV == 'development'
+
 puts "Data Imported"
