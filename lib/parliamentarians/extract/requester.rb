@@ -18,6 +18,10 @@ module Parliamentarians
       @list['ListaParlamentarEmExercicio']['Parlamentares']['Parlamentar'].length
     end
 
+    def get
+      json_to_hash
+    end
+
     private
     def do_request(req)
       @resp = Net::HTTP.new(@@uri_actual_list.host,

@@ -3,16 +3,16 @@ require_relative '../../bin/settings'
 require 'test/unit'
 
 module TestParliamentarians
-  class TestParliamentariansDB < Test::Unit::TestCase
+  class TestDbExtract < Test::Unit::TestCase
     def test_db_extract_settings_is_not_empty
-      assert_not_nil(EXTRACT_MONGO_SETTINGS['name'])
-      assert_not_nil(EXTRACT_MONGO_SETTINGS['host'])
-      assert_not_nil(EXTRACT_MONGO_SETTINGS['port'])
+      assert_not_nil(EXTRACT_MONGO_SETTINGS['test']['name'])
+      assert_not_nil(EXTRACT_MONGO_SETTINGS['test']['host'])
+      assert_not_nil(EXTRACT_MONGO_SETTINGS['test']['port'])
     end
 
     def test_connection_with_mongo_extract
       # Setup
-      extract_db = Parliamentarians::DbExtract.new(EXTRACT_MONGO_SETTINGS)
+      extract_db = Parliamentarians::DbExtract.new(EXTRACT_MONGO_SETTINGS['test'])
 
       # Assertion
       assert_not_nil(extract_db)
@@ -20,7 +20,7 @@ module TestParliamentarians
 
     def test_save
       # Setup
-      extract_db = Parliamentarians::DbExtract.new(EXTRACT_MONGO_SETTINGS)
+      extract_db = Parliamentarians::DbExtract.new(EXTRACT_MONGO_SETTINGS['test'])
       hash_to_save = {'parliamentary' => 'teste'}
 
       # Act
@@ -33,10 +33,11 @@ module TestParliamentarians
 
     def test_get
       # Setup
-      extract_db = Parliamentarians::DbExtract.new(EXTRACT_MONGO_SETTINGS)
-
+      extract_db = Parliamentarians::DbExtract.new(EXTRACT_MONGO_SETTINGS['test'])
+      hash_to_save = {'parliamentary' => 'teste'}
       # Act
-      found = extract_db.get({parliamentary:'teste'})
+      extract_db.save(hash_to_save)
+      found = extract_db.get(hash_to_save)
 
       # Assert
       assert_not_nil(found)
