@@ -1,5 +1,10 @@
 require 'mongo'
 
+# This class is used to connect with mongo
+#
+# Example of use:
+#   @db = Parliamentarians::DbExtract.new(EXTRACT_MONGO_SETTINGS[env])
+#   @db.save('your-data-here')
 
 module Parliamentarians
   class DbExtract

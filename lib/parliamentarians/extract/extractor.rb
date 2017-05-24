@@ -2,7 +2,16 @@ require_relative '../../../lib/settings'
 require_relative 'db_extract'
 require_relative 'requester'
 
-# Parliamentarians Object
+# This class is used to recovery parliamentarians data from open data
+# and save json on mongo
+# Dependencies:
+#   db_extract
+#   requester
+#
+# Example of use:
+#   parliamentarians = Parliamentarians::Extractor.new(ENV)
+#   data = parliamentarians.dump
+
 module Parliamentarians
   class Extractor
     def initialize(env='development')

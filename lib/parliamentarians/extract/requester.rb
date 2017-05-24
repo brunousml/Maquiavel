@@ -2,6 +2,18 @@ require 'net/http'
 require 'uri'
 require 'json'
 
+
+# This class is used to recovery parliamentarians data from open data
+# and save json on mongo
+# Dependencies:
+#   net/http
+#   uri
+#   json
+#
+# Example of use:
+#   @requester = Parliamentarians::Requester.new(PARLIAMENTARIANS_URL)
+#   data = @requester.get
+
 module Parliamentarians
   class Requester
     def initialize(url)

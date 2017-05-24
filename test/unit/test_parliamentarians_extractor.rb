@@ -2,8 +2,11 @@ require_relative '../../lib/parliamentarians/extract/extractor'
 require_relative '../../lib/settings'
 require 'test/unit'
 
+# This unit test is relational to Parliamentarians::Extractor class
 module TestParliamentarians
   class TestExtractor < Test::Unit::TestCase
+
+    # Test dump successful dump of parliamentarians into mongo
     def test_dump
       # Setup
       ex = Parliamentarians::Extractor.new
