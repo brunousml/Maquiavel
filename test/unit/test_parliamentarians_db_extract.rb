@@ -1,5 +1,5 @@
 require_relative '../../lib/parliamentarians/extract/db_extract'
-require_relative '../../bin/settings'
+require_relative '../../lib/settings'
 require 'test/unit'
 
 module TestParliamentarians

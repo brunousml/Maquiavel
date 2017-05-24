@@ -1,6 +1,9 @@
+
 BASE_PATH = Dir.pwd
 
 PARLIAMENTARIANS_URL = "http://legis.senado.leg.br/dadosabertos/senador/lista/atual"
+
+ENV = "production"
 
 EXTRACT_MONGO_SETTINGS = {
     'production' => {
@@ -21,4 +24,3 @@ EXTRACT_MONGO_SETTINGS = {
         'port' => "27017",
     },
 }
-

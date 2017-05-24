@@ -1,5 +1,5 @@
 require 'test/unit'
-require_relative '../../bin/settings'
+require_relative '../../lib/settings'
 require_relative 'test_parliamentarians_db_extract'
 require_relative 'test_parliamentarians_requester'
 require_relative 'test_parliamentarians_extractor'

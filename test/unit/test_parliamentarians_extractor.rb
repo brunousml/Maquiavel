@@ -1,5 +1,5 @@
 require_relative '../../lib/parliamentarians/extract/extractor'
-require_relative '../../bin/settings'
+require_relative '../../lib/settings'
 require 'test/unit'
 
 module TestParliamentarians
@@ -13,7 +13,7 @@ module TestParliamentarians
 
       # Assertion
       assert_not_nil(result)
-      assert_equal(1, result)
+      assert(result.is_a?Hash)
     end
   end
 end

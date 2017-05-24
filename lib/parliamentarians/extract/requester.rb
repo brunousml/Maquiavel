@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 require 'net/http'
 require 'uri'
 require 'json'
@@ -6,7 +5,7 @@ require 'json'
 module Parliamentarians
   class Requester
     def initialize(url)
-      @@uri_actual_list = URI.parse(url)
+      @uri_actual_list = URI.parse(url)
     end
 
     def get_json_raw
@@ -24,8 +23,8 @@ module Parliamentarians
 
     private
     def do_request(req)
-      @resp = Net::HTTP.new(@@uri_actual_list.host,
-                            @@uri_actual_list.port).start {|http| http.request(req) }
+      @resp = Net::HTTP.new(@uri_actual_list.host,
+                            @uri_actual_list.port).start {|http| http.request(req) }
     end
 
     def json_to_hash
@@ -35,7 +34,7 @@ module Parliamentarians
 
     def create_json_request
       header = {'Content-Type' =>'application/json'}
-      req = Net::HTTP::Get.new(@@uri_actual_list,
+      req = Net::HTTP::Get.new(@uri_actual_list,
                                initheader = header)
       req['Accept'] = "application/json"
 
