@@ -34,5 +34,25 @@ EXTRACT_MONGO_SETTINGS = {
 ```ruby test/unit/test_parliamentarians.rb```
 
 # Import Parliamentarians
-
 ```ruby bin/importParliamentarians.rb```
+
+# Makefile
+#### To execute tests
+This command will start mongo, execute tests and stop mongo
+
+```make tests```
+
+#### To start mongo
+This command execute docker-compose up -d
+
+```make start_mongo```
+
+#### To stop mongo
+This command execute docker-compose stop
+
+```make stop_mongo```
+
+#### To dump parliamentarians
+This command start mongo and import parliamentarians
+
+```make dump```
