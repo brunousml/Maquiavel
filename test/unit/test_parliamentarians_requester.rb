@@ -1,9 +1,20 @@
-require_relative '../../lib/parliamentarians/requester'
+require_relative '../../lib/parliamentarians/extract/requester'
 require_relative '../../bin/settings'
 require 'test/unit'
 
 module TestParliamentarians
-  class TestParliamentariansRequester < Test::Unit::TestCase
+  class TestRequester < Test::Unit::TestCase
+    def test_get
+      # Setup
+      req = Parliamentarians::Requester.new(PARLIAMENTARIANS_URL)
+
+      # Act
+      parliamentarians = req.get
+
+      # Assertion
+      assert_not_nil(parliamentarians)
+    end
+
     def test_get_json_raw
       # Setup
       req = Parliamentarians::Requester.new(PARLIAMENTARIANS_URL)
@@ -13,7 +24,17 @@ module TestParliamentarians
 
       # Assertion
       assert_not_nil(body)
-      assert_equal(81, req.length)
+    end
+
+    def test_length
+      # Setup
+      req = Parliamentarians::Requester.new(PARLIAMENTARIANS_URL)
+
+      # Act
+      result = req.length
+
+      # Assertion
+      assert_equal(81, result)
     end
   end
 end

@@ -2,9 +2,9 @@ require 'mongo'
 
 module Parliamentarians
   class DbExtract
-    def initialize(extract_mongo_settings)
-      host = [extract_mongo_settings['host'] + ':' + extract_mongo_settings['port']]
-      client = Mongo::Client.new(host, :database => extract_mongo_settings['name'])
+    def initialize(settings)
+      host = [settings['host'] + ':' + settings['port']]
+      client = Mongo::Client.new(host, :database => settings['name'])
       @@collection = client[:parliamentarians]
     end
 
