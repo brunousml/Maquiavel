@@ -5,6 +5,6 @@
 
 require 'test/unit'
 require_relative '../../lib/settings'
-require_relative 'test_parliamentarians_db_extract'
-require_relative 'test_parliamentarians_requester'
-require_relative 'test_parliamentarians_extractor'
+require_relative 'extract/test_parliamentarians_db_extract'
+require_relative 'extract/test_parliamentarians_requester'
+require_relative 'extract/test_parliamentarians_extractor'
