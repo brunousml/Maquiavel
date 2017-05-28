@@ -2,7 +2,7 @@
 # Required Constants:
 #   PARLIAMENTARIANS_URL
 #   ENV
-#   EXTRACT_MONGO_SETTINGS
+#   EXTRACT_MONGO_DB_SETTINGS
 
 # Url where open data is stored to public
 PARLIAMENTARIANS_URL = "http://legis.senado.leg.br/dadosabertos/senador/lista/atual"
@@ -11,7 +11,7 @@ PARLIAMENTARIANS_URL = "http://legis.senado.leg.br/dadosabertos/senador/lista/at
 ENV = "production"
 
 # Mongo settings to extract information (development, production or tests)
-EXTRACT_MONGO_SETTINGS = {
+EXTRACT_MONGO_DB_SETTINGS = {
     'production' => {
         'name' => "opendata_extract",
         'host' => "localhost",
