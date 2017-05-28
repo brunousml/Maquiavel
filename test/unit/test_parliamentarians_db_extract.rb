@@ -2,7 +2,7 @@ require_relative '../../lib/parliamentarians/extract/db_extract'
 require_relative '../../lib/settings'
 require 'test/unit'
 
-# This unit test is relational to Parliamentarians::DbExtract class
+# This unit test is related to Parliamentarians::DbExtract class
 module TestParliamentarians
   class TestDbExtract < Test::Unit::TestCase
 
