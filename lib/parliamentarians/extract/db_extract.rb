@@ -1,18 +1,16 @@
-require '../../mongo_db'
-require '../../settings'
+require_relative '../mongo_db_manager'
+require_relative '../../settings'
 
 # This class is used to connect with mongo extract db
 #
 # Example of use:
-#   @db = Parliamentarians::DbExtract.new(EXTRACT_MONGO_DB_SETTINGS[env])
-#   @db.save('your-data-here')
+#   db = Parliamentarians::DbExtract.new
+#   db.save('your-data-here')
 
 module Parliamentarians
-  class DbExtract < DB
+  class DbExtract < MongoDbManager
     def initialize
-      host = EXTRACT_MONGO_DB_SETTINGS['host'] + ':' + EXTRACT_MONGO_DB_SETTINGS['port']
-      @@client = Mongo::Client.new([host], :database => settings['name'])
-      @collection = @@client[:parliamentarians]
+      super(MONGO_DB_SETTINGS[$env], :extract_parliamentarians)
     end
   end
 end

@@ -8,24 +8,24 @@
 PARLIAMENTARIANS_URL = "http://legis.senado.leg.br/dadosabertos/senador/lista/atual"
 
 # Enviroment (development, production or tests)
-ENV = "production"
+$env = "production"
 
 # Mongo settings to extract information (development, production or tests)
-EXTRACT_MONGO_DB_SETTINGS = {
+MONGO_DB_SETTINGS = {
     'production' => {
-        'name' => "opendata_extract",
+        'name' => "opendata",
         'host' => "localhost",
         'port' => "27017",
     },
 
     'development' => {
-        'name' => "opendata_extract_dev",
+        'name' => "opendata_development",
         'host' => "localhost",
         'port' => "27017",
     },
 
     'test' => {
-        'name' => "opendata_extract_test",
+        'name' => "opendata_test",
         'host' => "localhost",
         'port' => "27017",
     },

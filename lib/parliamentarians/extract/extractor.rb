@@ -1,4 +1,4 @@
-require_relative '../../../lib/b'
+require_relative 'extractor'
 require_relative 'db_extract'
 require_relative 'requester'
 
@@ -14,15 +14,15 @@ require_relative 'requester'
 
 module Parliamentarians
   class Extractor
-    def initialize(env='development')
+    def initialize()
       # Set up
       @requester = Parliamentarians::Requester.new(PARLIAMENTARIANS_URL)
-      @db = Parliamentarians::DbExtract.new(EXTRACT_MONGO_DB_SETTINGS[env])
+      @db = Parliamentarians::DbExtract.new
     end
 
     def dump
       data = @requester.get
-      @db.save(data)
+      @db.insert(data)
       data
     end
   end
