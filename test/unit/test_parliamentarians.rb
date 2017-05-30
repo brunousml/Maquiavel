@@ -3,6 +3,7 @@
 # Command:
 #   ruby test/unit/test_parliamentarians.rb
 
+# setup
 require 'test/unit'
 require_relative '../../lib/settings'
 require_relative '../../test/unit/test_parliamentarians_mongo_db_manager'
@@ -14,3 +15,4 @@ require_relative 'extract/test_parliamentarians_extractor'
 
 # Transform Tests
 require_relative 'transform/test_parliamentarians_db_transform'
+require_relative 'transform/test_parliamentarians_parser'

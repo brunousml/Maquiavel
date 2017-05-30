@@ -14,14 +14,17 @@ require_relative 'requester'
 
 module Parliamentarians
   class Extractor
-    def initialize()
+    def initialize
       # Set up
       @requester = Parliamentarians::Requester.new(PARLIAMENTARIANS_URL)
       @db = Parliamentarians::DbExtract.new
     end
 
     def dump
-      data = @requester.get
+      parliamentarians = @requester.get
+      version = parliamentarians['ListaParlamentarEmExercicio']['Metadados']['Versao']
+      data = { :version => version, :parliamentarians => parliamentarians }
+
       @db.insert(data)
       data
     end

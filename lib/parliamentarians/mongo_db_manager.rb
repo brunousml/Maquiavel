@@ -12,6 +12,8 @@ module Parliamentarians
     attr_reader :collection
 
     def initialize(settings, collection)
+      Mongo::Logger.logger.level = ::Logger::FATAL if $env == 'production'
+
       host = settings['host'] + ':' + settings['port']
       @client = Mongo::Client.new([host], :database => settings['name'])
       @collection = @client[collection]
@@ -23,7 +25,7 @@ module Parliamentarians
     end
 
     def get(key)
-      @collection.find(key).first
+      @collection.find(key)
     end
   end
 end

@@ -1,4 +1,4 @@
-require_relative '../../../lib/b'
+require_relative '../extract/db_extract'
 
 # This class is used to parse parliamentarians information obtained
 # from extract DB
@@ -9,16 +9,26 @@ require_relative '../../../lib/b'
 #
 module Parliamentarians
   class Parser
-    def initialize(env='development')
-      #@db = Parliamentarians::DbExtract.new(EXTRACT_MONGO_DB_SETTINGS[env])
+    def initialize
+      @db_extract = Parliamentarians::DbExtract.new
     end
 
-    def get_contact
-      true
+    def get_contact(parliamentary)
+      id = parliamentary['IdentificacaoParlamentar']
+
+      {
+          :name => id['NomeParlamentar'],
+          :email => id['EmailParlamentar'],
+          :photo => id['UrlFotoParlamentar'],
+          :uf => id['UfParlamentar'],
+          :party => id['SiglaPartidoParlamentar']
+      }
     end
 
     def get_parliamentarians_raw
-      true
+      parliamentarians = nil
+      @db_extract.collection.find({}).sort("value"=>-1).each { |k| parliamentarians = k }
+      parliamentarians['parliamentarians']['ListaParlamentarEmExercicio']['Parlamentares']['Parlamentar']
     end
   end
 end
