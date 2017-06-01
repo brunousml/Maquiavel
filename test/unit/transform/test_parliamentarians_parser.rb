@@ -1,7 +1,7 @@
 require_relative '../../../lib/parliamentarians/transform/parser'
 require_relative '../../../lib/settings'
 require 'test/unit'
-require 'pry'
+
 # This unit test is related to Parliamentarians::Requester class
 module TestParliamentarians
   class TestParser < Test::Unit::TestCase
