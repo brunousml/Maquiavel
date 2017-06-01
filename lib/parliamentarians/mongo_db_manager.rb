@@ -19,9 +19,9 @@ module Parliamentarians
       @collection = @client[collection]
     end
 
-    def insert(doc)
-      result = @collection.insert_one(doc)
-      result.n
+    def insert(doc, key=nil)
+      to_save = key ? { key => doc } : doc
+      result = @collection.insert_one(to_save)
     end
 
     def get(key)

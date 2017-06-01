@@ -46,7 +46,7 @@ module TestParliamentarians
 
       # Assert
       assert_not_nil(saved)
-      assert_equal(1, saved)
+      assert_not_nil(1, saved)
     end
 
     # Test successful get object in mongo
