@@ -12,7 +12,7 @@ module TestParliamentarians
       transformer = Parliamentarians::Transformer.new
 
       # Act
-      saved_number = transformer.save
+      saved_number = transformer.save_contact_information
 
       # Assertion
       assert_not_nil(saved_number)

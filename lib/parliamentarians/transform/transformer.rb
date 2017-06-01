@@ -18,7 +18,7 @@ module Parliamentarians
       @db = Parliamentarians::DbTransform.new
     end
 
-    def save
+    def save_contact_information
       count = 0
 
       raw = @parser.get_parliamentarians_raw
