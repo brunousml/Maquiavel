@@ -2,7 +2,7 @@
 # Required Constants:
 #   PARLIAMENTARIANS_URL
 #   ENV
-#   EXTRACT_MONGO_DB_SETTINGS
+#   MONGO_DB_SETTINGS
 
 # Url where open data is stored to public
 PARLIAMENTARIANS_URL = "http://legis.senado.leg.br/dadosabertos/senador/lista/atual"

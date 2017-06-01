@@ -1,5 +1,4 @@
 require 'mongo'
-require 'json'
 
 # This class is used to connect and interact with mongo
 #

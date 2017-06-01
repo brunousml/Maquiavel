@@ -1,4 +1,3 @@
-require_relative 'extractor'
 require_relative 'db_extract'
 require_relative 'requester'
 

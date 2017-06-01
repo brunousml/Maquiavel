@@ -1,7 +1,7 @@
 require_relative '../../../lib/parliamentarians/extract/db_extract'
 require 'test/unit'
 
-# This unit test is related to Parliamentarians::MongoDbManager class
+# This unit test is related to Parliamentarians::DbExtract class
 module TestParliamentarians
   class TestDbExtract < Test::Unit::TestCase
     # Test successful connection with mongo

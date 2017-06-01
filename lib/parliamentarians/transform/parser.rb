@@ -3,10 +3,10 @@ require_relative '../extract/db_extract'
 # This class is used to parse parliamentarians information obtained
 # from extract DB
 # Dependencies:
-#
+#   extract/db_extract
 #
 # Example of use:
-#
+#   parser = Parliamentarians::Parser.new
 module Parliamentarians
   class Parser
     def initialize

@@ -1,8 +1,7 @@
 require_relative '../../../lib/parliamentarians/transform/parser'
-require_relative '../../../lib/settings'
 require 'test/unit'
 
-# This unit test is related to Parliamentarians::Requester class
+# This unit test is related to Parliamentarians::Parser class
 module TestParliamentarians
   class TestParser < Test::Unit::TestCase
 
@@ -19,7 +18,7 @@ module TestParliamentarians
       assert_equal(81, raw.length)
     end
 
-    # Test get contact information from extract DB
+    # Test to parse contact information from extract DB
     def test_parse_contact_information
       # Setup
       parser = Parliamentarians::Parser.new

@@ -1,5 +1,4 @@
 require_relative '../../../lib/parliamentarians/extract/extractor'
-require_relative '../../../lib/settings'
 require 'test/unit'
 
 # This unit test is related to Parliamentarians::Extractor class
