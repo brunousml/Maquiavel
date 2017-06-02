@@ -1,4 +1,3 @@
-require_relative '../../../lib/settings'
 require_relative 'db_extract'
 require_relative 'requester'
 
@@ -14,15 +13,18 @@ require_relative 'requester'
 
 module Parliamentarians
   class Extractor
-    def initialize(env='development')
+    def initialize
       # Set up
       @requester = Parliamentarians::Requester.new(PARLIAMENTARIANS_URL)
-      @db = Parliamentarians::DbExtract.new(EXTRACT_MONGO_SETTINGS[env])
+      @db = Parliamentarians::DbExtract.new
     end
 
     def dump
-      data = @requester.get
-      @db.save(data)
+      parliamentarians = @requester.get
+      version = parliamentarians['ListaParlamentarEmExercicio']['Metadados']['Versao']
+      data = { :version => version, :parliamentarians => parliamentarians }
+
+      @db.insert(data)
       data
     end
   end
