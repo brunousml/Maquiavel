@@ -1,4 +1,4 @@
-require_relative '../lib/parliamentarians/extract/extractor'
+require_relative '../lib/parliamentarians/extract/ct/extractor'
 
 # This file is used to import parliamentarians though command line
 # Dependencies:

@@ -6,6 +6,9 @@
 
 # Url where open data is stored to public
 PARLIAMENTARIANS_URL = "http://legis.senado.leg.br/dadosabertos/senador/lista/atual"
+COUNCILMAN_URL = {
+    "debits" => "https://app-sisgvconsulta-prd.azurewebsites.net/ws/ws2.asmx/ObterDebitoVereadorJSON?"
+}
 
 # Enviroment (development, production or tests)
 $env = "production"
