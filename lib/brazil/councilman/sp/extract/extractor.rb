@@ -1,5 +1,6 @@
 require_relative 'db_extract'
 require_relative 'requester'
+require "csv"
 
 # This class is used to recovery councilman data from open data
 # and save json on mongo
@@ -15,12 +16,12 @@ module SPCouncilman
   class Extractor
     def initialize
       # Set up
-      @requester = SPCouncilman::Requester.new(COUNCILMAN_URL['sp']['debits'])
+      @requester = SPCouncilman::Requester.new(OPEN_DATA_URLS['brazil']['councilman']['sp']['debits'])
       @db = SPCouncilman::DbExtract.new
     end
 
     def dump_debit
-      data = @requester.get
+      data = @requester.get_debits
       data.each do |el|
         el.each do |x|
           @db.insert(x)
@@ -29,10 +30,9 @@ module SPCouncilman
     end
 
     def dump_to_csv
-      data = @requester.get
-
-      require "csv"
+      data = @requester.get_debits
       File.write("councilman.csv", data.map(&:to_csv).join)
+      data
     end
   end
 end

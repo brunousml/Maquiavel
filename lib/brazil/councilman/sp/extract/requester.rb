@@ -16,11 +16,14 @@ require 'json'
 
 module SPCouncilman
   class Requester
+    attr_reader :base_url
+
     def initialize(url)
-      @uri_actual_list = get_all_uris(url)
+      @base_url = url
     end
 
-    def get
+    def get_debits
+      @uri_actual_list = get_all_uris_to_debits(@base_url)
       all_content = []
       @uri_actual_list.each do |uri_by_year|
         uri_by_year[1].each do |uri|
@@ -41,7 +44,7 @@ module SPCouncilman
       JSON.parse(resp.body)
     end
 
-    def get_all_uris(url)
+    def get_all_uris_to_debits(url)
       year = 2015
       uris = {}
 

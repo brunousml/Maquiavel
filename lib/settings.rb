@@ -5,12 +5,22 @@
 #   MONGO_DB_SETTINGS
 
 # Url where open data is stored to public
-PARLIAMENTARIANS_URL = 'http://legis.senado.leg.br/dadosabertos/senador/lista/atual'
-COUNCILMAN_URL = {
-    'sp' => {
-        'debits' => 'https://app-sisgvconsulta-prd.azurewebsites.net/ws/ws2.asmx/ObterDebitoVereadorJSON?'
+OPEN_DATA_URLS = {
+    'brazil' => {
+        'parliamentarians' => 'http://legis.senado.leg.br/dadosabertos/senador/lista/atual',
+        'councilman' => {
+            'sp' => {
+                'debits' => 'https://app-sisgvconsulta-prd.azurewebsites.net/ws/ws2.asmx/ObterDebitoVereadorJSON?'
+            }
+        }
     }
 }
+# PARLIAMENTARIANS_URL = 'http://legis.senado.leg.br/dadosabertos/senador/lista/atual'
+# COUNCILMAN_URL = {
+#     'sp' => {
+#         'debits' => 'https://app-sisgvconsulta-prd.azurewebsites.net/ws/ws2.asmx/ObterDebitoVereadorJSON?'
+#     }
+# }
 
 # Enviroment (development, production or tests)
 $env = 'production'
