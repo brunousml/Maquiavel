@@ -35,3 +35,23 @@ MONGO_DB_SETTINGS = {
         'port' => "27017",
     },
 }
+
+MYSQL_DB_SETTINGS = {
+    'production' => {
+        'name' => "opendata",
+        'host' => "localhost",
+        'port' => "27017",
+    },
+
+    'development' => {
+        'name' => "opendata_development",
+        'host' => "localhost",
+        'port' => "27017",
+    },
+
+    'test' => {
+        'name' => "opendata_test",
+        'host' => "localhost",
+        'port' => "27017",
+    },
+}

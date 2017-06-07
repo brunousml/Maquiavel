@@ -4,13 +4,13 @@ require_relative '../../../../lib/settings'
 # This class is used to connect with mongo extract db
 #
 # Example of use:
-#   db = Councilman::DbExtract.new
+#   db = Parliamentarians::DbExtract.new
 #   db.save('your-data-here')
 
-module Councilman
+module Parliamentarians
   class DbExtract < MongoDbManager
     def initialize
-      super(MONGO_DB_SETTINGS[$env], :extract_councilman)
+      super(MONGO_DB_SETTINGS[$env], :extract_parliamentarians)
     end
   end
 end

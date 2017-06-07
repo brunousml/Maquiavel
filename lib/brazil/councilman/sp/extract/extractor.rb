@@ -11,12 +11,12 @@ require_relative 'requester'
 #   councilman = Councilman::Extractor.new(ENV)
 #   data = councilman.dump
 
-module Councilman
+module SPCouncilman
   class Extractor
     def initialize
       # Set up
-      @requester = Councilman::Requester.new(COUNCILMAN_URL['debits'])
-      @db = Councilman::DbExtract.new
+      @requester = SPCouncilman::Requester.new(COUNCILMAN_URL['sp']['debits'])
+      @db = SPCouncilman::DbExtract.new
     end
 
     def dump_debit

@@ -1,4 +1,4 @@
-require_relative '../../../lib/parliamentarians/extract/db_extract'
+require_relative '../../../../../lib/brazil/parliamentarians/extract/db_extract'
 require 'test/unit'
 
 # This unit test is related to Parliamentarians::DbExtract class

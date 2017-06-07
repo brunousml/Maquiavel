@@ -1,4 +1,4 @@
-require_relative '../lib/parliamentarians/transform/transformer'
+require_relative '../lib/brazil/parliamentarians/transform/transformer'
 
 # This file is used to import parliamentarians thouth command line
 # Dependencies:

@@ -14,7 +14,7 @@ require 'json'
 #   @requester = Councilman::Requester.new(COUNCILMAN_URL)
 #   data = @requester.get
 
-module Councilman
+module SPCouncilman
   class Requester
     def initialize(url)
       @uri_actual_list = get_all_uris(url)
