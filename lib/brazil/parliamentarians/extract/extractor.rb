@@ -15,7 +15,7 @@ module Parliamentarians
   class Extractor
     def initialize
       # Set up
-      @requester = Parliamentarians::Requester.new(PARLIAMENTARIANS_URL)
+      @requester = Parliamentarians::Requester.new(OPEN_DATA_URLS['brazil']['parliamentarians'])
       @db = Parliamentarians::DbExtract.new
     end
 

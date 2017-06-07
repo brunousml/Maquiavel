@@ -1,4 +1,5 @@
 require_relative '../../lib/brazil/councilman/sp/extract/extractor'
+require "csv"
 
 # This file is used to import councilman though command line
 # Dependencies:
@@ -10,7 +11,7 @@ require_relative '../../lib/brazil/councilman/sp/extract/extractor'
 puts 'Importing councilman debits....'
 
 extractor = SPCouncilman::Extractor.new
-data = extractor.dump_to_csv
+File.write("councilman.csv", extractor.data.map(&:to_csv).join)
 puts data if ENV == 'development'
 
 

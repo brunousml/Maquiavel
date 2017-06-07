@@ -11,4 +11,7 @@ require_relative '../../lib/settings'
 require_relative 'test_mongo_db_manager'
 
 # Parliamentarians
-require_relative '../unit/brazil/parliamentarians/test_parliamentarians'
+require_relative 'brazil/parliamentarians/test_parliamentarians'
+
+# Councilman
+require_relative 'brazil/councilman/sp/test_sp_councilman'

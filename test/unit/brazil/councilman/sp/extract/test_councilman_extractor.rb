@@ -15,20 +15,7 @@ module TestSPCouncilman
 
       # Assertion
       assert_not_nil(result)
-      assert(result.is_a?Array)
-    end
-
-    # Test dump successful debits councilman
-    def test_dump_debits_to_csv
-      # Setup
-      ex = SPCouncilman::Extractor.new
-
-      # Act
-      result = ex.dump_to_csv
-
-      # Assertion
-      assert_not_nil(result)
-      assert(result.is_a?Array)
+      assert(ex.data.is_a?Array)
     end
   end
 end

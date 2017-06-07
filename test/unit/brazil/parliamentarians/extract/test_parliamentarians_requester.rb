@@ -9,7 +9,7 @@ module TestParliamentarians
     # Test get information from opendata
     def test_get
       # Setup
-      req = Parliamentarians::Requester.new(PARLIAMENTARIANS_URL)
+      req = Parliamentarians::Requester.new(OPEN_DATA_URLS['brazil']['parliamentarians'])
 
       # Act
       parliamentarians = req.get
@@ -21,7 +21,7 @@ module TestParliamentarians
     # Test get information from opendata in json raw
     def test_get_json_raw
       # Setup
-      req = Parliamentarians::Requester.new(PARLIAMENTARIANS_URL)
+      req = Parliamentarians::Requester.new(OPEN_DATA_URLS['brazil']['parliamentarians'])
 
       # Act
       body = req.get_json_raw
@@ -33,7 +33,7 @@ module TestParliamentarians
     # Test length of parliamentarians returned from open data
     def test_length
       # Setup
-      req = Parliamentarians::Requester.new(PARLIAMENTARIANS_URL)
+      req = Parliamentarians::Requester.new(OPEN_DATA_URLS['brazil']['parliamentarians'])
 
       # Act
       result = req.length
