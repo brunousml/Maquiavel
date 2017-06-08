@@ -1,5 +1,5 @@
-require_relative '../mongo_db_manager'
-require_relative '../../settings'
+require_relative '../../../mongo_db_manager'
+require_relative '../../../../lib/settings'
 
 # This class is used to connect with mongo extract db
 #

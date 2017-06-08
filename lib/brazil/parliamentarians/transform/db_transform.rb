@@ -1,6 +1,5 @@
-require 'mongo'
-require_relative '../../settings'
-require_relative '../mongo_db_manager'
+require_relative '../../../mongo_db_manager'
+require_relative '../../../settings'
 
 
 # This class is used to connect with mongo and use transform collection

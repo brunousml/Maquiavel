@@ -1,4 +1,4 @@
-require_relative '../../../lib/parliamentarians/transform/db_transform'
+require_relative '../../../../../lib/brazil/parliamentarians/transform/db_transform'
 require 'test/unit'
 
 # This unit test is related to Parliamentarians::DbTransform class

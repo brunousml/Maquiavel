@@ -1,4 +1,4 @@
-require_relative '../../../lib/parliamentarians/transform/parser'
+require_relative '../../../../../lib/brazil/parliamentarians/transform/parser'
 require 'test/unit'
 
 # This unit test is related to Parliamentarians::Parser class
