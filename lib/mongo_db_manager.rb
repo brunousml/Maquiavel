@@ -21,6 +21,7 @@ class MongoDbManager
   def insert(doc, key=nil)
     to_save = key ? { key => doc } : doc
     result = @collection.insert_one(to_save)
+    result
   end
 
   def get(key)

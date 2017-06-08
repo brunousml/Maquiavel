@@ -9,6 +9,7 @@ require_relative '../../lib/settings'
 
 # Db Connection
 require_relative 'test_mongo_db_manager'
+require_relative 'test_mysql_db_manager'
 
 # Parliamentarians
 require_relative 'brazil/parliamentarians/test_parliamentarians'
