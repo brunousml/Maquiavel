@@ -1,4 +1,4 @@
-require_relative '../../lib/brazil/councilman/sp/extract/extractor'
+require_relative '../../lib/brazil/councilman/sp/extract/ct/extractor'
 require "csv"
 
 # This file is used to import councilman though command line

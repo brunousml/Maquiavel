@@ -1,7 +1,7 @@
 require 'net/http'
 require 'uri'
 require 'json'
-
+require_relative '../../../../../lib/settings'
 
 # This class is used to recovery councilman data from open data
 # and save json on mongo
@@ -28,7 +28,7 @@ module SPCouncilman
       @uri_actual_list.each do |uri_by_year|
         uri_by_year[1].each do |uri|
           content = do_request(uri[1])
-          all_content << content
+          all_content.concat(content)
         end
       end
       all_content
@@ -45,17 +45,18 @@ module SPCouncilman
     end
 
     def get_all_uris_to_debits(url)
-      year = 2015
+      from_year = OPEN_DATA_URLS['brazil']['councilman']['sp']['from_year']
+      to_year = OPEN_DATA_URLS['brazil']['councilman']['sp']['to_year']
       uris = {}
 
-      while year <= 2017 do
-        uris.merge!({year => {}})
+      while from_year <= to_year do
+        uris.merge!({from_year => {}})
 
-        13.times do |month|
-          next if month == 0
-          uris[year].merge!({ month => URI.parse(url + "ano=#{year}&mes=#{month}")})
+        12.times do |month|
+          month += 1
+          uris[from_year].merge!({ month => URI.parse(url + "ano=#{from_year}&mes=#{month}")})
         end
-        year += 1
+        from_year += 1
       end
 
       uris

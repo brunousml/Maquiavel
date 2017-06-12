@@ -27,7 +27,7 @@ module SPCouncilman
       all_raw_debits = @db_extract.get_debits # TODO: improve
 
       # Insert into councilmans_debits table each one debit
-      all_raw_debits.each do |raw_debit|
+      all_raw_debits[0]['debits'].each do |raw_debit|
         # Parse open data information to our context
         debits_to_save = @parser.get_debit_object_to_save_in_mysql(raw_debit)
 

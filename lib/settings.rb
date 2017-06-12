@@ -10,7 +10,9 @@ OPEN_DATA_URLS = {
         'parliamentarians' => 'http://legis.senado.leg.br/dadosabertos/senador/lista/atual',
         'councilman' => {
             'sp' => {
-                'debits' => 'https://app-sisgvconsulta-prd.azurewebsites.net/ws/ws2.asmx/ObterDebitoVereadorJSON?'
+                'debits' => 'https://app-sisgvconsulta-prd.azurewebsites.net/ws/ws2.asmx/ObterDebitoVereadorJSON?',
+                'from_year' => 2016, # used to define period to import
+                'to_year' => 2017, # used to define period to import
             }
         }
     }

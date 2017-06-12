@@ -17,5 +17,17 @@ module TestSPCouncilman
       assert_not_nil(saved_number)
       assert_equal(81, saved_number)
     end
+
+    def test_get_raw_debits
+      # Setup
+      transformer = SPCouncilman::Transformer.new
+
+      # Act
+      saved_number = transformer.
+
+      # Assertion
+      assert_not_nil(saved_number)
+      assert_equal(81, saved_number)
+    end
   end
 end

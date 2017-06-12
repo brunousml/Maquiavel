@@ -21,5 +21,16 @@ module TestSPCouncilman
       # Assert
       assert_equal("extract_councilman", db.collection.name)
     end
+
+    def test_get_debits
+      # Setup
+      db = SPCouncilman::DbExtract.new
+
+      # ACT
+      debits = db.get_debits
+
+      # Assert
+      assert_equal("extract_councilman", db.collection.name)
+    end
   end
 end

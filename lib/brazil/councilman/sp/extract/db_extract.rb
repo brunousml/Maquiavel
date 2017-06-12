@@ -15,7 +15,7 @@ module SPCouncilman
 
     def get_debits
       debits = []
-      @collection.find({}).each { |k| debits << k }
+      @collection.find({}, {:sort => {'time'=> -1}, :limit => 1}).each { |k| debits << k }
       debits
     end
   end

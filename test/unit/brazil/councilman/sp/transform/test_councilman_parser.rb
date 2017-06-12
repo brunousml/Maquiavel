@@ -30,7 +30,7 @@ module TestSPCouncilman
       # Assertion
       assert_not_nil(raw)
       assert_not_nil(raw.has_key? "filename")
-      assert_not_nil(raw.has_key? "key")
+      assert_not_nil(raw.has_key? "code")
       assert_not_nil(raw.has_key? "value")
     end
 
