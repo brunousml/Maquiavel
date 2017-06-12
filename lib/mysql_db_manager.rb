@@ -20,11 +20,18 @@ class MysqlDbManager
   end
 
   def query(query_string)
-    data = @client.query(query_string)
-    rows_affected
+    result = @client.query(query_string)
+    rows_affected(result)
   end
 
-  def save(object_to_save, table_name)
+  def rows_affected(result)
+    {
+        :rows_affected => @client.affected_rows(),
+        :result => result
+    }
+  end
+
+  def create(object_to_save, table_name)
     columns = ''
     values = ''
 
@@ -34,15 +41,30 @@ class MysqlDbManager
       values.concat(', ') if values != ''
 
       # Default concat
-      columns.concat(k)
-      values.concat("'" + v + "'")
+      columns.concat(k.to_s)
+      values.concat('"' + v.to_s + '"')
     end
 
     query_string = "INSERT INTO #{table_name} (#{columns}) VALUES (#{values});"
     query(query_string)
   end
 
-  def rows_affected
-    {'rows_affected' => @client.affected_rows()}
+  def get(where, table_name)
+    where_string = ''
+
+    where.each do |k, v|
+      # Add "," when add more than one
+      where_string.concat('AND ') if where_string != ''
+
+      # Default concat
+      where_string.concat(k.to_s)
+      where_string.concat('=')
+      where_string.concat("'" + v.to_s + "'")
+    end
+
+    query_string = "SELECT * FROM #{table_name} WHERE #{where_string};"
+    result = query(query_string)
   end
+
+
 end

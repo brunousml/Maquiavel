@@ -4,6 +4,7 @@
 #   ruby test/unit/test_parliamentarians.rb
 
 # setup
+$ENV = 'test'
 require 'test/unit'
 require_relative '../../lib/settings'
 
