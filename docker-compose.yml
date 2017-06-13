@@ -11,6 +11,6 @@ services:
         image: mysql:latest
         environment:
          - MYSQL_ROOT_PASSWORD=servidor
-         - MYSQL_DATABASE=opendata
+         - MYSQL_DATABASE=your-pass
         ports:
           - "3307:3306"
