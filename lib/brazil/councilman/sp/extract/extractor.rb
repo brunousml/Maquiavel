@@ -19,15 +19,22 @@ module SPCouncilman
       # Set up
       @requester = SPCouncilman::Requester.new(OPEN_DATA_URLS['brazil']['councilman']['sp']['debits'])
       @db = SPCouncilman::DbExtract.new
-      @data = @requester.get_debits
+    end
+
+    def get_data
+      @requester.get_debits
     end
 
     def dump_debit
-      @data.each do |el|
-        el.each do |x|
-          @db.insert(x)
-        end
-      end
+      # Setup
+      data = @requester.get_debits
+      time = Time.now.getutc
+
+      # ACT
+      @db.insert({:time => time, :debits => data})
+
+      # Return
+      data
     end
   end
 end

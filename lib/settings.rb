@@ -10,17 +10,13 @@ OPEN_DATA_URLS = {
         'parliamentarians' => 'http://legis.senado.leg.br/dadosabertos/senador/lista/atual',
         'councilman' => {
             'sp' => {
-                'debits' => 'https://app-sisgvconsulta-prd.azurewebsites.net/ws/ws2.asmx/ObterDebitoVereadorJSON?'
+                'debits' => 'https://app-sisgvconsulta-prd.azurewebsites.net/ws/ws2.asmx/ObterDebitoVereadorJSON?',
+                'from_year' => 2016, # used to defined period to import
+                'to_year' => 2017, # used to define period to import
             }
         }
     }
 }
-# PARLIAMENTARIANS_URL = 'http://legis.senado.leg.br/dadosabertos/senador/lista/atual'
-# COUNCILMAN_URL = {
-#     'sp' => {
-#         'debits' => 'https://app-sisgvconsulta-prd.azurewebsites.net/ws/ws2.asmx/ObterDebitoVereadorJSON?'
-#     }
-# }
 
 # Enviroment (development, production or tests)
 $env = 'production'
@@ -50,18 +46,24 @@ MYSQL_DB_SETTINGS = {
     'production' => {
         'name' => "opendata",
         'host' => "localhost",
-        'port' => "27017",
+        'port' => "3306",
+        'username' => "root",
+        'password' => "servidor",
     },
 
     'development' => {
         'name' => "opendata_development",
         'host' => "localhost",
-        'port' => "27017",
+        'port' => "3306",
+        'username' => "root",
+        'password' => "servidor",
     },
 
     'test' => {
         'name' => "opendata_test",
         'host' => "localhost",
-        'port' => "27017",
+        'port' => "3306",
+        'username' => "root",
+        'password' => "servidor",
     },
 }

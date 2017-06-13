@@ -1,4 +1,4 @@
-require_relative '../../lib/brazil/councilman/sp/extract/extractor'
+require_relative '../../../lib/brazil/councilman/sp/extract/extractor'
 
 # This file is used to import councilman though command line
 # Dependencies:
@@ -7,11 +7,9 @@ require_relative '../../lib/brazil/councilman/sp/extract/extractor'
 # Execute command to use:
 #   ruby bin/import_councilman_debits.rb
 
-puts 'Importing councilman debits....'
+puts 'Extracting councilman debits....'
 
 extractor = SPCouncilman::Extractor.new
 data = extractor.dump_debit
-puts data if ENV == 'development'
 
-
-puts 'It\'s finished.'
+puts data.length.to_s + ' Debits imported.'

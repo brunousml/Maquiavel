@@ -11,6 +11,7 @@ module TestParliamentarians
 
       # Assertion
       assert_not_nil(db)
+      assert_equal(Parliamentarians::DbTransform, db.class)
     end
 
     # Test verify existence of :transform_parliamentarians collection

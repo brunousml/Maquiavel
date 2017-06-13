@@ -12,5 +12,11 @@ module SPCouncilman
     def initialize
       super(MONGO_DB_SETTINGS[$env], :extract_councilman)
     end
+
+    def get_debits
+      debits = []
+      @collection.find({}, {:sort => {'time'=> -1}, :limit => 1}).each { |k| debits << k }
+      debits
+    end
   end
 end

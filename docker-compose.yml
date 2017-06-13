@@ -10,7 +10,7 @@ services:
     mysqldb:
         image: mysql:latest
         environment:
-         - MYSQL_ROOT_PASSWORD=root
-         - MYSQL_DATABASE=servidor
+         - MYSQL_ROOT_PASSWORD=servidor
+         - MYSQL_DATABASE=your-pass
         ports:
           - "3307:3306"

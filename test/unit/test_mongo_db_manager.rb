@@ -2,8 +2,8 @@ require 'test/unit'
 require_relative '../../lib/mongo_db_manager'
 require_relative '../../lib/settings'
 
-# This unit test is related to Parliamentarians::MongoDbManager class
-module TestParliamentarians
+# This unit test is related to MongoDbManager class
+module Test
   class TestMongoDbManager < Test::Unit::TestCase
 
     # Test the presence of mongo test settings
@@ -28,12 +28,13 @@ module TestParliamentarians
     end
 
     # Test successful connection with mongo
-    def test_connection_with_mongo_extract
+    def test_connection_with_mongo
       # Setup
       db = MongoDbManager.new(MONGO_DB_SETTINGS['test'], :parliamentarians)
 
       # Assertion
       assert_not_nil(db)
+      assert_equal(MongoDbManager, db.class)
     end
 
     # Test successful object saved in mongo
@@ -47,7 +48,6 @@ module TestParliamentarians
 
       # Assert
       assert_not_nil(saved)
-      assert_not_nil(1, saved)
     end
 
     # Test successful get object in mongo
