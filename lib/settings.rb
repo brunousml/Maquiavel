@@ -11,7 +11,7 @@ OPEN_DATA_URLS = {
         'councilman' => {
             'sp' => {
                 'debits' => 'https://app-sisgvconsulta-prd.azurewebsites.net/ws/ws2.asmx/ObterDebitoVereadorJSON?',
-                'from_year' => 2016, # used to define period to import
+                'from_year' => 2016, # used to defined period to import
                 'to_year' => 2017, # used to define period to import
             }
         }

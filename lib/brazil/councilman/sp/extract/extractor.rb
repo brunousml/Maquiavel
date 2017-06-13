@@ -21,6 +21,10 @@ module SPCouncilman
       @db = SPCouncilman::DbExtract.new
     end
 
+    def get_data
+      @requester.get_debits
+    end
+
     def dump_debit
       # Setup
       data = @requester.get_debits
