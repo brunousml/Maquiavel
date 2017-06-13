@@ -63,8 +63,8 @@ module SPCouncilman
     def get_or_create_councilman_debits(debit, councilman_id)
       debit[:councilman_id] = councilman_id
       puts debit if $env == 'development'
+      # TODO: Create get to scape duplication
       contact_information = @db_transform.create(debit, 'councilman_debits')
-      # @db.insert(contact_information)
     end
 
 
