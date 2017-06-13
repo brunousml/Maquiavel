@@ -54,7 +54,7 @@ class MysqlDbManager
 
     where.each do |k, v|
       # Add "," when add more than one
-      where_string.concat('AND ') if where_string != ''
+      where_string.concat(' AND ') if where_string != ''
 
       # Default concat
       where_string.concat(k.to_s)

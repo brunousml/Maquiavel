@@ -61,13 +61,20 @@ module SPCouncilman
     end
 
     def get_or_create_councilman_debits(debit, councilman_id)
+      # Get Councilman
       debit[:councilman_id] = councilman_id
-      puts debit if $env == 'development'
-      # TODO: Create get to scape duplication
-      contact_information = @db_transform.create(debit, 'councilman_debits')
+      where = debit
+      where.delete(:value)
+      query = @db_transform.get(where, 'councilman_debits')
+
+      if query[:rows_affected] == 0
+        contact_information = @db_transform.create(debit, 'councilman_debits')
+        query = @db_transform.get(where, 'councilman_debits')
+      end
+
+      result = query[:result].each(:as => :hash) {|el| el}
+      result[0]
     end
-
-
   end
 end
 

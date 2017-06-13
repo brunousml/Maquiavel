@@ -1,3 +1,4 @@
+# encoding: UTF-8
 
 # This class is used to parse councilman information obtained
 # from extract DB
@@ -20,7 +21,7 @@ module SPCouncilman
           :year => debit['ANO'],
           :month => debit['MES'],
           :cnpj => debit['CNPJ'],
-          :provider => debit['FORNECEDOR'],
+          :provider => debit['FORNECEDOR'].sub("'", ""),
           :value => debit['VALOR'],
         },
         :councilman => {
