@@ -1,4 +1,5 @@
 require 'mysql2'
+require 'net/ssh/gateway'
 
 # This class is used to connect and interact with mysql
 #
@@ -10,13 +11,28 @@ require 'mysql2'
 class MysqlDbManager
 
   def initialize(settings)
+    port = settings[:port]
+    if settings.has_key? :ssh
+      port = ssh_connection(settings[:ssh])
+    end
+
     @client = Mysql2::Client.new(
-        :host => settings['host'],
-        :username => settings['username'],
-        :password => settings['password'],
-        :port => settings['port'],
-        :database => settings['name']
+        :host => settings[:host],
+        :username => settings[:user],
+        :password => settings[:password],
+        :port => port,
+        :database => settings[:name],
+        :connect_timeout => 9999
     )
+  end
+
+  def ssh_connection(settings={})
+    gateway = Net::SSH::Gateway.new(
+        settings[:host],
+        settings[:user],
+        :password => settings[:password])
+    port = gateway.open('127.0.0.1', 3306, 3317)
+    port
   end
 
   def query(query_string)
