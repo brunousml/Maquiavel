@@ -63,7 +63,7 @@ module SPCouncilman
     def get_or_create_councilman_debits(debit, councilman_id)
       # Get Councilman
       debit[:councilman_id] = councilman_id
-      where = debit
+      where = debit.clone
       where.delete(:value)
       query = @db_transform.get(where, 'councilman_debits')
 
